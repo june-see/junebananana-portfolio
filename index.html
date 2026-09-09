@@ -202,6 +202,40 @@ a { color: inherit; }
   background: var(--soft-line);
 }
 
+.sort-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  color: #8b6148;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+}
+
+.sort-control label {
+  white-space: nowrap;
+}
+
+.sort-control select {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 241, 0.58);
+  color: #704733;
+  font: inherit;
+  padding: 7px 28px 7px 11px;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #8b6148 50%), linear-gradient(135deg, #8b6148 50%, transparent 50%);
+  background-position: calc(100% - 13px) 50%, calc(100% - 9px) 50%;
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+}
+
+.sort-control select:focus-visible {
+  outline: 2px solid rgba(199, 58, 0, 0.22);
+  outline-offset: 2px;
+}
+
 .articles {
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -558,8 +592,22 @@ footer a:focus-visible {
 <div class="section-heading">
 <h2>My Writings</h2>
 <span aria-hidden="true" class="section-line"></span>
+<div class="sort-control">
+<label for="writing-sort">Sort by date</label>
+<select id="writing-sort" aria-label="Sort writings by date">
+<option value="latest" selected>Latest first</option>
+<option value="earliest">Earliest first</option>
+</select>
+</div>
 </div>
 <div class="articles">
+<article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="2056326092949209289" data-description-locked="true">
+<div class="article-copy">
+<h3>Loading article title…</h3>
+<p>Researched where memecoin alpha actually comes from and identified the X accounts and KOLs worth following for earlier signals and better market context.</p>
+<div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
+<a class="article-link" href="https://x.com/BlockFlow_News/status/2056326092949209289" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
+</article>
 <article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="2043766900346499241">
 <div class="article-copy">
 <h3>From Fragmentation to One Market: The Role of TCG Aggregators</h3>
@@ -567,12 +615,33 @@ footer a:focus-visible {
 <div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
 <a class="article-link" href="https://x.com/BlockFlow_News/status/2043766900346499241?s=20" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
 </article>
+<article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="2039930256799269227" data-description-locked="true">
+<div class="article-copy">
+<h3>The $24 Billion Underground River in Cambodia and How Crypto's Largest Criminal Marketplace Was Brought Down</h3>
+<p>Translated a TechFlow investigation for English readers, covering Cambodia’s $24 billion underground crypto economy and how one of crypto’s largest criminal marketplaces was brought down.</p>
+<div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
+<a class="article-link" href="https://x.com/BlockFlow_News/status/2039930256799269227" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
+</article>
+<article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="2026190622143733793" data-description-locked="true">
+<div class="article-copy">
+<h3>Jane Street Is Being Sued Over Alleged Crypto Insider Trading That May Have Accelerated $LUNA Terraform’s Collapse</h3>
+<p>Turned the Jane Street and Terraform lawsuit into a visual flowchart using Gemini, breaking down the alleged insider trading and how it may have accelerated the $LUNA collapse. This became BlockFlow’s highest-impression post.</p>
+<div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
+<a class="article-link" href="https://x.com/BlockFlow_News/status/2026190622143733793" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
+</article>
 <article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="2021615761131979113">
 <div class="article-copy">
 <h3>Everyone's Bleeding. TCG Collectors Are Thriving. The Next Big Narrative?</h3>
 <p>Highlighted the role of digitalisation in TCG and the growing importance of TCG platforms, at a time when TCG was one of the few bright spots in the market.</p>
 <div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
 <a class="article-link" href="https://x.com/BlockFlow_News/status/2021615761131979113?s=20" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
+</article>
+<article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="2016767646122070055" data-description-locked="true">
+<div class="article-copy">
+<h3>Loading article title…</h3>
+<p>Looked into the backlash around Binance following the October 10 flash crash, covering criticism of its market structure, Alpha, and listing practices. This became BlockFlow’s highest-impression article.</p>
+<div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
+<a class="article-link" href="https://x.com/BlockFlow_News/status/2016767646122070055" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
 </article>
 <article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="2005922052000366755">
 <div class="article-copy">
@@ -609,7 +678,7 @@ footer a:focus-visible {
 <div aria-label="X engagement" class="article-stats">Loading engagement…</div></div>
 <a class="article-link" href="https://x.com/BlockFlow_News/status/1977623704235598237" rel="noreferrer" target="_blank">Read on X <span>↗</span></a>
 </article>
-<article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="1968196925230104670"><div class="article-copy"><h3>Loading article title…</h3><p>Loading article details from X…</p><div aria-label="X engagement" class="article-stats">Loading engagement…</div></div><a class="article-link" href="https://x.com/BlockFlow_News/status/1968196925230104670?s=20" rel="noreferrer" target="_blank">Read on X <span>↗</span></a></article><article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="1966437769087173092"><div class="article-copy"><h3>Loading article title…</h3><p>Loading article details from X…</p><div aria-label="X engagement" class="article-stats">Loading engagement…</div></div><a class="article-link" href="https://x.com/BlockFlow_News/status/1966437769087173092" rel="noreferrer" target="_blank">Read on X <span>↗</span></a></article><article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="1965000980698972486">
+<article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="1968196925230104670" data-description-locked="true"><div class="article-copy"><h3>Loading article title…</h3><p>I researched and introduced PunkStrategy, exploring whether it could represent a &quot;MicroStrategy moment&quot; for NFTs.</p><div aria-label="X engagement" class="article-stats">Loading engagement…</div></div><a class="article-link" href="https://x.com/BlockFlow_News/status/1968196925230104670?s=20" rel="noreferrer" target="_blank">Read on X <span>↗</span></a></article><article class="article-row" data-autofill="true" data-screen-name="BlockFlow_News" data-tweet-id="1966437769087173092" data-description-locked="true"><div class="article-copy"><h3>Loading article title…</h3><p>Looked into Pump.fun's latest Project Ascend update and creator fees, while exploring why major crypto platforms are increasingly building beyond their core products.</p><div aria-label="X engagement" class="article-stats">Loading engagement…</div></div><a class="article-link" href="https://x.com/BlockFlow_News/status/1966437769087173092" rel="noreferrer" target="_blank">Read on X <span>↗</span></a></article><article class="article-row" data-screen-name="BlockFlow_News" data-tweet-id="1965000980698972486">
 <div class="article-copy">
 <h3>Malaysian Chinese: The Crypto Story Hiding in Plain Sight</h3>
 <p>A story about Malaysian Chinese in the crypto industry and a community whose role in the space is larger than it might first appear.</p>
@@ -656,6 +725,28 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+
+// Sort writings by X post date. X Snowflake IDs increase over time, so their numeric order matches publish order.
+function sortArticlesByDate(direction = 'latest') {
+  const container = document.querySelector('.articles');
+  if (!container) return;
+  const rows = [...container.querySelectorAll('.article-row[data-tweet-id]')];
+  rows.sort((a, b) => {
+    const aId = BigInt(a.dataset.tweetId);
+    const bId = BigInt(b.dataset.tweetId);
+    if (aId === bId) return 0;
+    const newerFirst = aId > bId ? -1 : 1;
+    return direction === 'latest' ? newerFirst : -newerFirst;
+  });
+  rows.forEach((row) => container.appendChild(row));
+}
+
+const writingSort = document.getElementById('writing-sort');
+if (writingSort) {
+  writingSort.addEventListener('change', () => sortArticlesByDate(writingSort.value));
+  sortArticlesByDate(writingSort.value);
+}
 
 // Load public X engagement for each article.
 // FxTwitter is used as the primary public read-only source, with VxTwitter as a fallback.
@@ -745,7 +836,7 @@ async function hydrateArticle(row) {
       if (title) {
         title.textContent = tweet?.article?.title || tweet?.text?.split('\n')[0] || 'BlockFlow Article';
       }
-      if (description) {
+      if (description && row.dataset.descriptionLocked !== 'true') {
         description.textContent = cleanAutoDescription(tweet);
       }
     }
@@ -758,7 +849,7 @@ async function hydrateArticle(row) {
       const title = row.querySelector('h3');
       const description = row.querySelector('.article-copy > p');
       if (title && title.textContent.startsWith('Loading')) title.textContent = 'BlockFlow Article';
-      if (description && description.textContent.startsWith('Loading')) description.textContent = 'Additional writing published on BlockFlow.';
+      if (description && row.dataset.descriptionLocked !== 'true' && description.textContent.startsWith('Loading')) description.textContent = 'Additional writing published on BlockFlow.';
     }
   }
 }
