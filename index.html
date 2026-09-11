@@ -759,10 +759,17 @@ footer a:focus-visible {
   <div class="subsection-heading">
     <p>Chinese Writings</p>
     <span class="section-line" aria-hidden="true"></span>
+    <div class="sort-control">
+      <label for="chinese-writing-sort">Sort by date</label>
+      <select id="chinese-writing-sort" aria-label="Sort Chinese writings by date">
+        <option value="latest" selected>Latest first</option>
+        <option value="earliest">Earliest first</option>
+      </select>
+    </div>
   </div>
 
   <div class="articles chinese-writings" lang="zh-CN">
-    <article class="article-row">
+    <article class="article-row" data-article-id="27392">
       <div class="article-copy">
         <h3>被遗忘的WIF，注意力经济下的meme币生死法则</h3>
         <p>这里没有渐进式的衰落，只有断崖式的崩塌。</p>
@@ -770,7 +777,7 @@ footer a:focus-visible {
       <a class="article-link" href="https://www.techflowpost.com/article/27392" target="_blank" rel="noreferrer">Read Article <span>↗</span></a>
     </article>
 
-    <article class="article-row">
+    <article class="article-row" data-article-id="27680">
       <div class="article-copy">
         <h3>Gbirb，Moonbirds 浴火归来</h3>
         <p>Moonbirds 需要一个把月鸟视为中心的团队，而 Orange Cap Games 是带它们发挥潜能的不二之选。</p>
@@ -778,7 +785,7 @@ footer a:focus-visible {
       <a class="article-link" href="https://www.techflowpost.com/article/27680" target="_blank" rel="noreferrer">Read Article <span>↗</span></a>
     </article>
 
-    <article class="article-row">
+    <article class="article-row" data-article-id="27933">
       <div class="article-copy">
         <h3>大马华人，加密世界的隐形主角</h3>
         <p>跨越周期，这支影子军团一直都在行业中做着自己的事。（合著者）</p>
@@ -786,7 +793,7 @@ footer a:focus-visible {
       <a class="article-link" href="https://www.techflowpost.com/article/27933" target="_blank" rel="noreferrer">Read Article <span>↗</span></a>
     </article>
 
-    <article class="article-row">
+    <article class="article-row" data-article-id="28070">
       <div class="article-copy">
         <h3>预测市场信息过载，聚合器赛道成为新的“流量入口”</h3>
         <p>当一则新闻延伸成多个预测主题在不同平台流动，聚合器赛道正在迎来它的高光时刻。</p>
@@ -794,7 +801,7 @@ footer a:focus-visible {
       <a class="article-link" href="https://www.techflowpost.com/article/28070" target="_blank" rel="noreferrer">Read Article <span>↗</span></a>
     </article>
 
-    <article class="article-row">
+    <article class="article-row" data-article-id="28369">
       <div class="article-copy">
         <h3>探访 Network School： Web3 乌托邦，建在马来西亚碧桂园的烂尾楼里</h3>
         <p>1500 美金加入 Network School，到底值不值？</p>
@@ -802,7 +809,7 @@ footer a:focus-visible {
       <a class="article-link" href="https://www.techflowpost.com/article/28369" target="_blank" rel="noreferrer">Read Article <span>↗</span></a>
     </article>
 
-    <article class="article-row">
+    <article class="article-row" data-article-id="32139">
       <div class="article-copy">
         <h3>九年没盈利的 Snap，与一场十年未见回报的 AR 执念</h3>
         <p>一边裁人省钱，一边重金押注一个十年未见回报的愿景。</p>
@@ -857,6 +864,25 @@ const writingSort = document.getElementById('writing-sort');
 if (writingSort) {
   writingSort.addEventListener('change', () => sortArticlesByDate(writingSort.value));
   sortArticlesByDate(writingSort.value);
+}
+
+// Sort Chinese writings by TechFlow article sequence, which follows publication order.
+function sortChineseArticlesByDate(direction = 'latest') {
+  const container = document.querySelector('.articles.chinese-writings');
+  if (!container) return;
+  const rows = [...container.querySelectorAll('.article-row[data-article-id]')];
+  rows.sort((a, b) => {
+    const aId = Number(a.dataset.articleId);
+    const bId = Number(b.dataset.articleId);
+    return direction === 'latest' ? bId - aId : aId - bId;
+  });
+  rows.forEach((row) => container.appendChild(row));
+}
+
+const chineseWritingSort = document.getElementById('chinese-writing-sort');
+if (chineseWritingSort) {
+  chineseWritingSort.addEventListener('change', () => sortChineseArticlesByDate(chineseWritingSort.value));
+  sortChineseArticlesByDate(chineseWritingSort.value);
 }
 
 // Load public X engagement for each article.
